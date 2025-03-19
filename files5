@@ -1,0 +1,14 @@
+pipeline {
+    agent { node { label "agent_314" } }
+
+    stages {
+
+        stage("Build") {
+            steps {
+                echo "Building..."
+                git 'https://gitlab/engineering/automation/create_pass_criteria.git'
+                sh './mvnw clean compile'
+            }
+          }
+      }
+    }
